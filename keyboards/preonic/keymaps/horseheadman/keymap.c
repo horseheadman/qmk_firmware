@@ -30,7 +30,11 @@ enum preonic_keycodes {
   LOWER,
   RAISE,
   BACKLIT,
-  ADJUST
+  ADJUST,
+  FORLOOPC,
+  IFTHENC,
+  FORLOOPP,
+  IFTHENP
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -43,17 +47,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl |  Alt |  GUI |Adjust| Lower|    Space    |Raise | Left | Down |  Up  |Right |
+ * | Ctrl |  Alt |  GUI |Adjust| Lower|    Space    |Raise |   /  | Left | Down |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQUAL, \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,  \
   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,  \
-  KC_LCTL, KC_LALT, KC_LGUI, ADJUST,  TG(_LOWER),   KC_SPC,  KC_SPC, TG(_RAISE),   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
+  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP, KC_ENT,  \
+  KC_LCTL, KC_LALT, KC_LGUI, ADJUST,  TG(_LOWER),   KC_SPC,  KC_SPC, TG(_RAISE),   KC_SLSH, KC_LEFT, KC_DOWN,   KC_RGHT \
 ),
 
 
@@ -65,17 +69,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Caps |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |   \  | Menu |
+ * |      |      |      |      |      |      |      |      |      |      |      |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RCtrl | RAlt | RGui |      |      |      |      |      |      |      |      |      |
+ * |RCtrl | RAlt | RGui |      |      |      |      |      |      |  \   |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_preonic_grid( \
   KC_PSCREEN, KC_PGUP, KC_PGDOWN, KC_HOME, KC_END, KC_INSERT, KC_SCROLLLOCK, KC_NUMLOCK, KC_PAUSE, KC_LBRACKET, KC_RBRACKET, KC_MINUS, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DELETE, \
-  KC_CAPSLOCK, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  KC_RSHIFT, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BSLASH, KC_MENU, \
-  KC_RCTRL, KC_RALT, KC_RGUI, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
+  KC_CAPSLOCK, FORLOOPC, IFTHENC, FORLOOPP, IFTHENP, _______, _______, _______, _______, _______, _______, _______, \
+  KC_RSHIFT, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), _______, _______, _______, _______, _______, _______, KC_ENT, \
+  KC_RCTRL, KC_RALT, KC_RGUI, _______, _______, _______, _______, _______, KC_BSLASH,  _______, _______, _______	\
 ),
 
 /* Raise
@@ -86,17 +90,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Caps |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |  |   | Menu |
+ * |      |      |      |      |      |      |      |      |      |      |      |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RCtrl | RAlt | RGui |      |      |      |      |      |      |      |      |      |
+ * |RCtrl | RAlt | RGui |      |      |      |      |      |      |  |   |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_grid( \
   KC_PSCREEN, KC_PGUP, KC_PGDOWN, KC_HOME, KC_END, KC_INSERT, KC_SCROLLLOCK, KC_NUMLOCK, KC_PAUSE, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_UNDERSCORE, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DELETE, \
-  KC_CAPSLOCK, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  KC_RSHIFT, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PIPE, KC_MENU, \
-  KC_RCTRL, KC_RALT, KC_RGUI, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
+  KC_CAPSLOCK, FORLOOPC, IFTHENC, FORLOOPP, IFTHENP, _______, _______, _______, _______, _______, _______, _______, \
+  KC_RSHIFT, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), _______, _______, _______, _______, _______, _______, KC_ENT, \
+  KC_RCTRL, KC_RALT, KC_RGUI, _______, _______, _______, _______, _______, KC_PIPE, _______, _______, _______ \
 ),
 
 /* Adjust (Lower + Raise)
@@ -172,6 +176,38 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+        case FORLOOPC:
+          if (record->event.pressed) {
+            // when keycode C FORLOOP is pressed
+            SEND_STRING("for (int i=0; i<N; i++){}");
+          } else {
+            // when keycode is released
+          }
+          break;
+        case FORLOOPP:
+          if (record->event.pressed) {
+            // when keycode Python FORLOOP is pressed
+            SEND_STRING("for x in list:");
+          } else {
+            // when keycode is released
+          }
+          break;
+        case IFTHENC:
+          if (record->event.pressed) {
+            // when keycode C IFTHEN is pressed
+            SEND_STRING("if (condition1) {// code block 1} else if (condition2){// code block 2} else {// code block 3}");
+          } else {
+            // when keycode is released
+          }
+          break;
+        case IFTHENP:
+          if (record->event.pressed) {
+            // when keycode Python IFTHEN is pressed
+            SEND_STRING("if b > a: #condition1 elif a == b: #condition2 else: #condition3");
+          } else {
+            // when keycode is released
+          }
+          break;	  
         case QWERTY:
           if (record->event.pressed) {
             set_single_persistent_default_layer(_QWERTY);

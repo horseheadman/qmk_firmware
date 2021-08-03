@@ -3,3 +3,4 @@ SRC += muse.c
 AUDIO_ENABLE = yes
 DIP_SWITCH_ENABLE = no
 AUTO_SHIFT_ENABLE = yes
+
