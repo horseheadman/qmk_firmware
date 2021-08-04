@@ -69,17 +69,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Caps |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |Enter |
+ * |      |      |      |      |      |      |      |      |      |      | PgUp |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RCtrl | RAlt | RGui |      |      |      |      |      |      |  \   |      |      |
+ * |RCtrl | RAlt | RGui |      |      |      |      |      |  \   | Home | PgDw | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_preonic_grid( \
   KC_PSCREEN, KC_PGUP, KC_PGDOWN, KC_HOME, KC_END, KC_INSERT, KC_SCROLLLOCK, KC_NUMLOCK, KC_PAUSE, KC_LBRACKET, KC_RBRACKET, KC_MINUS, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DELETE, \
   KC_CAPSLOCK, FORLOOPC, IFTHENC, FORLOOPP, IFTHENP, _______, _______, _______, _______, _______, _______, _______, \
-  KC_RSHIFT, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), _______, _______, _______, _______, _______, _______, KC_ENT, \
-  KC_RCTRL, KC_RALT, KC_RGUI, _______, _______, _______, _______, _______, KC_BSLASH,  _______, _______, _______	\
+  KC_RSHIFT, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), _______, _______, _______, _______, _______, KC_PGUP, KC_ENT, \
+  KC_RCTRL, KC_RALT, KC_RGUI, _______, _______, _______, _______, _______, KC_BSLASH, KC_HOME , KC_PGDOWN, KC_END 	\
 ),
 
 /* Raise
@@ -90,17 +90,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Caps |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |Enter |
+ * |      |      |      |      |      |      |      |      |      |      | PgUp |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RCtrl | RAlt | RGui |      |      |      |      |      |      |  |   |      |      |
+ * |RCtrl | RAlt | RGui |      |      |      |      |      |  |   | Home | PgDw | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_grid( \
   KC_PSCREEN, KC_PGUP, KC_PGDOWN, KC_HOME, KC_END, KC_INSERT, KC_SCROLLLOCK, KC_NUMLOCK, KC_PAUSE, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_UNDERSCORE, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DELETE, \
   KC_CAPSLOCK, FORLOOPC, IFTHENC, FORLOOPP, IFTHENP, _______, _______, _______, _______, _______, _______, _______, \
-  KC_RSHIFT, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), _______, _______, _______, _______, _______, _______, KC_ENT, \
-  KC_RCTRL, KC_RALT, KC_RGUI, _______, _______, _______, _______, _______, KC_PIPE, _______, _______, _______ \
+  KC_RSHIFT, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), _______, _______, _______, _______, _______, KC_PGUP, KC_ENT, \
+  KC_RCTRL, KC_RALT, KC_RGUI, _______, _______, _______, _______, _______, KC_PIPE, KC_HOME , KC_PGDOWN, KC_END \
 ),
 
 /* Adjust (Lower + Raise)
